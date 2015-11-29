@@ -16,8 +16,12 @@ def new
 
 def create
   @book = Book.new(book_params)
-  @book.save
-  redirect_to @book
+  if @book.save
+    #redirect_to @book
+    redirect_to @book, notice: "#{@book.title} was created!"
+    else
+      render :new
+    end
 end
 
 def edit
@@ -26,8 +30,14 @@ end
 
 def update
   #@book = Book.find(params[:id])
-  @book.update(book_params)
-  redirect_to @book
+  #@book.update(book_params)
+  #redirect_to @book
+  if @book.update(book_params)
+    #redirect_to @book
+    redirect_to @book, notice: "#{@book.title} was updated!"
+  else
+      render :edit
+  end
 end
 
 def destroy
