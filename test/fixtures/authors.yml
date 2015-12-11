@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  dob: 
+  nationality: 
+  awards: 
+  biography: 
+  image_url: MyString
+
+two:
+  name: 
+  dob: 
+  nationality: 
+  awards: 
+  biography: 
+  image_url: MyString
