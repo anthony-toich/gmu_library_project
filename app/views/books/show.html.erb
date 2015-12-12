@@ -7,6 +7,7 @@
   </header>
 
 <div style="float:left; margin:0 1em .5em 0;"><%= image_tag(@book.image_cover_url, height:"240") %></div>
+<p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Author:</label> <%= @book.author.name %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
