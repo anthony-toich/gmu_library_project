@@ -11,15 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211025048) do
+ActiveRecord::Schema.define(version: 20151212182434) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.date     "dob"
+    t.string   "nationality"
+    t.string   "awards"
+    t.string   "biography"
+    t.string   "image_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "books", force: :cascade do |t|
+    t.string   "isbn"
     t.string   "title"
-    t.string   "author"
+    t.string   "genre"
+    t.text     "abstract"
     t.integer  "pages"
-    t.decimal  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_cover_url"
+    t.date     "published_on"
+    t.integer  "total_in_library"
+    t.integer  "author_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "books", ["author_id"], name: "index_books_on_author_id"
 
 end
