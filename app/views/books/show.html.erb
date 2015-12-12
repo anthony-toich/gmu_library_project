@@ -5,9 +5,15 @@
   <header>
     <h2><%= @book.title %> </h2>
   </header>
-  <p><label>Author:</label> <%= @book.author %></p>
+
+<div style="float:left; margin:0 1em .5em 0;"><%= image_tag(@book.image_cover_url, height:"240") %></div>
+  <p><label>Author:</label> <%= @book.author.name %></p>
+  <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
-  <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
+  <p><label>Date Published:</label> <%= @book.published_on %></p>
+  <p><label>Abstract:</label> <%= @book.abstract %></p>
+  <p><label>Number Available to Reserve:</label> <%= @book.total_in_library %></p>
+ <div style="float:none; clear:both;"> </div>
 </article>
 
 <%= link_to 'All Books', books_path %> | <%= link_to 'Edit', edit_book_path(@book) %>
