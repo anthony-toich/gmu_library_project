@@ -48,7 +48,7 @@ end
 
 private
 def author_params
-  params.require(:author).permit(:name, :dob, :nationality, :biography)
+  params.require(:author).permit(:name, :dob, :nationality, :biography, :image_url)
 end
 
 def set_author
