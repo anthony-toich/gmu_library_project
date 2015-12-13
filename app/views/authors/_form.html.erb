@@ -1,0 +1,18 @@
+<%= form_for(@author) do |f| %>
+<% render 'shared/validation_errors', object: @author %>
+<%= f.label :name %> <%= f.text_field :name, autofocus: true %><br />
+
+<%= f.label :dob %> <%= f.date_select :dob %><br />
+
+<%= f.label :nationality %> <%= f.text_field :nationality %><br />
+
+<%= f.label :biography %> <%= f.text_area :biography %><br />
+
+<%= f.label :awards %> <%= f.text_field :awards %><br />
+
+<%= f.label :image_cover_url %> <%= f.text_field :image_url %><br />
+  <p>
+    <%= f.submit %>
+    <%= link_to 'Cancel', authors_path %>
+  </p>
+<% end %>

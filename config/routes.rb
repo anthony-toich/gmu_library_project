@@ -12,5 +12,9 @@ resources :books do
   get 'page/:page', :action => :index, :on => :collection
 end
 
+resources :authors do
+  get 'page/:page', :action => :index, :on => :collection
+end
+
 root 'books#index'
 end

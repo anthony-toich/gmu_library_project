@@ -1,7 +1,7 @@
 <%= form_for(@book) do |f| %>
   <% render 'shared/validation_errors', object: @book %>
   <%= f.label :title %> <%= f.text_field :title, autofocus: true %><br />
-  <%= f.label :author %> <%= f.select( :author_id, options_from_collection_for_select(Author.all, :id, :name))%><br />
+  <%= f.label :author %> <%= f.select( :author_id, options_from_collection_for_select(Author.all, :id, :name), {prompt: "Pick One"})%><br />
 
 
   <%= f.label :isbn %> <%= f.text_field :isbn %><br />
@@ -9,7 +9,7 @@
 <%= f.label :abstract %> <%= f.text_area :abstract %><br />
 
 
-   <%= f.label :genre %> <%= f.select :genre, Book::GENRES, {prompt: "Pick one"} %><br />
+   <%= f.label :genre %> <%= f.select :genre, Book::GENRES, {prompt: "Pick One"} %><br />
 
   <%= f.label :pages %> <%= f.text_field :pages %><br />
 

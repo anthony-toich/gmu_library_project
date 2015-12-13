@@ -1,0 +1,10 @@
+
+  <% @authors.each do |author| %>
+
+<div style="float:left; margin:0 1em .5em 0;">
+<%= image_tag(author.image_url, height:"120") %>
+<%= link_to(author.name, author) %>
+</div>
+ <div style="float:none; clear:both;"> </div>
+
+<% end %>
