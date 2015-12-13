@@ -1,0 +1,32 @@
+<% content_for :name, @author.name %>
+
+
+<article class="author">
+  <header>
+    <h2><%= @author.name %></h2>
+  </header>
+
+<div style="float:left; margin:0 1em .5em 0;"><%= image_tag(@author.image_url, height:"240") %></div>
+<p><%= @author.biography %></p>
+
+<h3>Details</h3>
+  <p><label>Date of birth:</label> <%= @author.dob %></p>
+  <p><label>Nationality:</label> <%= @author.nationality %></p>
+  <p><label>Awards:</label> <%= @author.awards %></p>
+
+<h3>Publications</h3>
+<% @author.books.each do |book| %>
+<div style="float:left; margin:0 1em .5em 0;">
+<%= image_tag(book.image_cover_url, height:"120") %>
+</div>
+<p><label>Title:</label> <%= book.title %></p>
+
+ <div style="float:none; clear:both;"> </div>
+<% end %>
+ <div style="float:none; clear:both;"> </div>
+</article>
+
+<%= link_to 'All Authors', authors_path %> | <%= link_to 'Edit', edit_author_path(@author) %>
+<%= button_to 'Delete', @author,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
