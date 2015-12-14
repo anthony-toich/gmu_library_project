@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+div.clearAll{
+  float:none;
+  clear: both;
+  height: 1em;
+}
+
+div.left{
+  float:left;
+}
+
+div.right{
+  float:right;
+}

@@ -6,5 +6,8 @@ GENRES = ['Art','Cookbooks', 'Fantasy', 'History',  'Music', 'Psychology', 'Scie
 validates :title, :pages, :isbn, :genre, :abstract, :image_cover_url, :published_on, :total_in_library, presence: true
 validates :pages, numericality:{only_integer: true, greater_than_or_equal_to: 0}, unless: "pages.blank?"
 
+def self.search(query)
+  joins(:author).where("title like? OR genre like? or authors.name like ?", "%#{query}%" , "%#{query}%", "%#{query}%")
+end
 
 end

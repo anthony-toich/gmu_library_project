@@ -1,8 +1,11 @@
 class BooksController < ApplicationController
   def index
     @available_at = Time.now
-    #@books = Book.all
-    @books = Book.order(:title).page(params[:page])
+    if params[:search]
+      @books = Book.search(params[:search]).page(params[:page])
+    else
+      @books = Book.order(:title).page(params[:page])
+    end
   end
 
 before_action :set_book, only: [ :show, :edit, :update, :destroy ]
@@ -46,6 +49,8 @@ def destroy
   @book.destroy
   redirect_to books_url
 end
+
+
 
 private
 def book_params

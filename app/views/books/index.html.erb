@@ -1,9 +1,21 @@
 
+<%= render 'search' %>
+
+
 <p>Available as <%= formatted_time(@available_at) %></p>
 <%= page_entries_info @books %>
-<ol>
+<div style="float:none; clear:both;"> </div>
+
+
+
+
 <% @books.each do |book| %>
-  <li><%= link_to(book.title, book) %> by <%= book.author.name %></li>
-<% end %>
-</ol>
-<%= paginate @books %>
+<div>
+  <div style="float:left; margin:1em 1em .5em 0;">
+    <%= image_tag(book.image_cover_url, height:"120") %>
+</div>
+   <div style="float:left; margin:1em 1em .5em 0;"><%= link_to(book.title, book) %> by <%= book.author.name %></div>
+
+</div>
+ <div style="float:none; clear:both;"> </div>
+ <% end %><%= paginate @books %>
