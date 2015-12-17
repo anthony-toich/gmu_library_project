@@ -1,6 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+  font-family: Verdana;
+  font-size: 1.5em;
+  background: linear-gradient(white, silver);
+}
+div.container{
+  width:90%;
+  margin: 1em auto;
+}
+
+div.formLabel{
+  width: 5em;
+  text-align: right;
+  float: left;
+}
+div.formField{
+  width: 20em;
+  text-align: left;
+  float: left;
+}
+
 div.clearAll{
   float:none;
   clear: both;
@@ -13,4 +34,21 @@ div.left{
 
 div.right{
   float:right;
+}
+
+table.user{
+  border-left: solid 2px black;
+  border-top: solid 2px black;
+}
+
+td.user{
+  border-right: solid 2px black;
+  border-bottom: solid 2px black;
+  padding:5px;
+}
+
+th.user{
+  border-right: solid 2px black;
+  border-bottom: solid 2px black;
+  padding:5px;
 }

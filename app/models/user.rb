@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   has_many :reservations, dependent: :destroy
   has_secure_password
 
+  def index
+    @users = User.order(:name)
+  end
+
 end

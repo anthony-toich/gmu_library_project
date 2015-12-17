@@ -1,0 +1,26 @@
+<h2>Listing of All Users</h2>
+
+<div class="container">
+<table class="user">
+  <thead>
+    <tr >
+      <th class="user">Name</th>
+      <th class="user">User ID</th>
+      <th class="user">Is Admin</th>
+      <th class="user">Date Created</th>
+      <th class="user">Date Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="user"><%= user.name %></td>
+        <td class="user"><%= user.user_id %></td>
+        <td class="user"><%= user.admin %></td>
+        <td class="user"><%= formatted_date(user.created_at) %></td>
+        <td class="user"><%= formatted_date(user.updated_at) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
