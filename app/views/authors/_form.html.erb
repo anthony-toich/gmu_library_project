@@ -2,15 +2,15 @@
 
 <%= form_for(@author) do |f| %>
 <% render 'shared/validation_errors', object: @author %>
-<%= f.label :name %> <%= f.text_field :name, autofocus: true %><br />
+<%= f.label :name %> <%= f.text_field :name, autofocus: true, :size=> "30" %><br />
 
 <%= f.label :dob %> <%= f.date_select :dob %><br />
 
 <%= f.label :nationality %> <%= f.text_field :nationality %><br />
 
-<%= f.label :biography %> <%= f.text_area :biography %><br />
+<%= f.label :biography %> <%= f.text_area :biography, size: "50x5" %><br />
 
-<%= f.label :awards %> <%= f.text_field :awards %><br />
+<%= f.label :awards %> <%= f.text_field :awards, :size=> "80" %><br />
 
 <%= f.label :image_url %> <%= f.text_field :image_url %><br />
   <p>
