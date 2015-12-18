@@ -1,18 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'admin' => 'admin#index'
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
+  get 'login' => 'sessions#new'
+  post 'login' =>'sessions#create'
+  get 'logout' => 'sessions#destroy'
 
 #get "/books" => "books#index", as: 'books'
 #get "/books/new" => "books#new", as: 'new_book'

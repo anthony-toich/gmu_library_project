@@ -19,7 +19,9 @@
  <div style="float:none; clear:both;"> </div>
 </article>
 
-<%= link_to 'All Books', books_path %> | <%= link_to 'Edit', edit_book_path(@book) %>
+<%= link_to 'All Books', books_path %>
+<% if current_user && current_user.admin == true %>| <%= link_to 'Edit', edit_book_path(@book) %>
 <%= button_to 'Delete', @book,
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+               <% end %>

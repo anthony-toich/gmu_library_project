@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+before_filter :authorize
+
   def index
     @available_at = Time.now
     if params[:search]

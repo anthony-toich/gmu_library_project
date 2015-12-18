@@ -26,7 +26,11 @@
  <div style="float:none; clear:both;"> </div>
 </article>
 
-<%= link_to 'All Authors', authors_path %> | <%= link_to 'Edit', edit_author_path(@author) %>
+<%= link_to 'All Authors', authors_path %>
+<% if current_user && current_user.admin == true %>
+
+ | <%= link_to 'Edit', edit_author_path(@author) %>
 <%= button_to 'Delete', @author,
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+<% end %>

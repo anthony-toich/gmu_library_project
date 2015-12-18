@@ -1,2 +1,10 @@
+ <% if current_user && current_user.admin == true %>
+
 <h1>Editing Author <%= @author.name %></h1>
 <%= render 'form' %>
+
+<% else %>
+
+
+
+<% end %>

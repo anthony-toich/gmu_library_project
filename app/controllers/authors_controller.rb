@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  before_filter :authorize
   def index
 @available_at = Time.now
     @authors = Author.order(:name)
