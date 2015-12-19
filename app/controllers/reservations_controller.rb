@@ -2,11 +2,16 @@ class ReservationsController < ApplicationController
 
 before_filter :authorize
 
-before_action :set_reservation, only: [ :show, :edit, :update, :destroy ]
-
 def index
 @available_at = Time.now
-    @reservations = Reservation.order(:reserved_on)
+    @reservations = Reservation.order(:due_on)
+    #@reservations = Reservation.all
+  end
+
+before_action :set_reservation, only: [:show, :edit, :update, :destroy ]
+
+ def show
+    @reservation = Reservation.find(params[:id])
   end
 
 def new
@@ -16,7 +21,7 @@ def new
 def create
   @reservation = Reservation.new(reservation_params)
   @reservation.save
-   if @reservation.save
+if @reservation.save
   redirect_to @reservation, notice: "Reservation was created!"
 else
 redirect_to @reservation, notice: "Reservation was NOT created!"

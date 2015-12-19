@@ -18,7 +18,7 @@
   <p><label>Number Available to Reserve:</label> <%= @book.total_in_library %></p>
   <p>Reserve the book.  User ID <%= current_user.id %>  Book ID <%= @book.id %> </p>
 
-  <%= button_to "Reserve This Book", {:controller => "reservations", :action => "create", :book_id => @book.id, :user_id => current_user.id }, :method => :get %>
+  <%= button_to "Reserve This Book", {:controller => "reservations",  :book_id => @book.id, :user_id => current_user.id }, :method => :get %>
  <div style="float:none; clear:both;"> </div>
 </article>
 

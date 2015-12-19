@@ -1,8 +1,6 @@
 class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
-  has_many :books
-  has_many :users
 
 before_create :set_dates
   def set_dates

@@ -1,2 +1,9 @@
 
-hello world
+<h3>Reservations</h3>
+<p>Available as <%= formatted_time(@available_at) %></p>
+<ol>
+<% @reservations.each do |reservation| %>
+ <li> <%= reservation.book.title %> reserved by: <%= reservation.user.name %> due on <%= reservation.due_on %>
+
+  <% end %>
+</ol>

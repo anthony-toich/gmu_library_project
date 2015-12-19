@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :author
   has_many :reservations, dependent: :destroy
+  has_many :users, through: :reservations
 
 GENRES = ['Art','Cookbooks', 'Fantasy', 'History',  'Music', 'Psychology', 'Science Fiction']
 

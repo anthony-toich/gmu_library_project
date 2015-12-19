@@ -26,3 +26,6 @@ user1 = User.where(user_id:'user1').first_or_create!(name:'user1', password_dige
 user2 = User.where(user_id:'user2').first_or_create!(name:'user2', password_digest: BCrypt::Password.create('user2'), admin:false)
 admin1 = User.where(user_id:'admin1').first_or_create!(name:'admin1', password_digest: BCrypt::Password.create('admin1'), admin:true)
 admin2 = User.where(user_id:'admin2').first_or_create!(name:'admin2', password_digest: BCrypt::Password.create('admin2'), admin:true)
+res1 = Reservation.where(id:1).first_or_create!(id:1, user_id:3, book_id:1, reserved_on:'2015/12/15', due_on:'2015/12/26')
+res2 = Reservation.where(id:2).first_or_create!(id:2, user_id:2, book_id:5, reserved_on:'2015/11/15', due_on:'2015/11/26')
+res3 = Reservation.where(id:3).first_or_create!(id:3, user_id:2, book_id:7, reserved_on:'2015/22/15', due_on:'2015/12/31')
