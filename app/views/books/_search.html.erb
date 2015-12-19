@@ -1,7 +1,7 @@
 
 <div class="right">
 <%= form_tag(books_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search on title, genre, or author." %>
+<%= text_field_tag :search, params[:search], placeholder: "Search on isbn, title, genre, or author.", :size=> "30"  %>
 <button type="submit">Search</button>
 <% end %>
 <%= yield %>

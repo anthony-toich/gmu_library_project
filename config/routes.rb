@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
 
-  get 'login' => 'sessions#new'
-  post 'login' =>'sessions#create'
-  get 'logout' => 'sessions#destroy'
+get 'login' => 'sessions#new'
+post 'login' =>'sessions#create'
+get 'logout' => 'sessions#destroy'
 
 #get "/books" => "books#index", as: 'books'
 #get "/books/new" => "books#new", as: 'new_book'
@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 #patch "/books/:id" => "books#update"
 #delete "/books/:id" => "books#destroy"
 #resources :books
+
+resources :reservations do
+  get 'page/:page', :action => :index, :on => :collection
+end
 
 resources :books do
   get 'page/:page', :action => :index, :on => :collection
