@@ -1,9 +1,20 @@
 
 <h3>Reservations</h3>
 <p>Available as <%= formatted_time(@available_at) %></p>
+<p>
+
 <ol>
 <% @reservations.each do |reservation| %>
- <li> <%= reservation.book.title %> reserved by: <%= reservation.user.name %> due on <%= reservation.due_on %>
+ <li> <%= reservation.book.title %> reserved by: <%= reservation.user.name %> due on <%= reservation.due_on %> <%   date_diff = (reservation.due_on.to_date - DateTime.now.to_date).to_i  %>
 
+<% if reservation.due_on.to_date < DateTime.now.to_date %> <span class="overdue">Overdue</span>
+
+<% else %>
+Due in <%= date_diff %> days
+<% end %>
+
+
+</li>
   <% end %>
 </ol>
+</p>

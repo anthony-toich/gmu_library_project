@@ -1,0 +1,19 @@
+
+<h3>Reservations</h3>
+
+<p><%= current_user.id %></p>
+
+<% @reservations.each do |reservation| %>
+
+
+ID <% @reservation.id %><br>
+
+USER ID <% @reservation.user_id %><br>
+
+Book ID <% @reservation.book_id %><br>
+
+Reserved On <% @reservation.reserved_on %><br>
+
+<br>
+
+<% end %>
