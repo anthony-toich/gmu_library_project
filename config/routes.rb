@@ -18,7 +18,6 @@ resources :reservations do
   get 'page/:page', :action => :index, :on => :collection
 end
 
-
 resources :books do
   get 'page/:page', :action => :index, :on => :collection
 end
