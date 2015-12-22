@@ -17,7 +17,9 @@
   <p><label>Abstract:</label> <%= @book.abstract %></p>
   <p><label>Number Available to Reserve:</label> <%= @book.total_in_library %></p>
   <p>Reserve the book.  User ID <%= current_user.id %>  Book ID <%= @book.id %> </p>
+
 <p>
+
 <% if @book.total_in_library > 0 %>
   <%= button_to "Reserve This Book", {:controller => "reservations", :action =>"create", :user_id => current_user.id, :book_id => @book.id }, :method => :post %>
   <% else %>

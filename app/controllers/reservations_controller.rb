@@ -14,14 +14,10 @@ before_action :set_reservation, only: [:show, :edit, :update, :destroy ]
   end
 
 def new
-
     @reservation = Reservation.new
-
-
   end
 
 def create
-
 
   @reservation = Reservation.new(reservation_params)
 
