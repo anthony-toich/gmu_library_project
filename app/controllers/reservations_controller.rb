@@ -10,23 +10,25 @@ def index
 before_action :set_reservation, only: [:show, :edit, :update, :destroy ]
 
  def show
-@reservations = Reservation.where("user_id = ?", params[:current_user_id])
+  @reservations = Reservation.where("user_id = ?", params[:current_user_id])
   end
 
-def new
+  def new
     @reservation = Reservation.new
   end
 
 def create
-
-  @reservation = Reservation.new(reservation_params)
-
+  @reservation = Reservation.new
+  @reservation.book_id = params[:book_id]
+  @reservation.user_id = current_user.id
   @reservation.save
-if @reservation.save
-  redirect_to @reservation, notice: "Reservation was created!"
-else
-redirect_to @reservation, notice: "Reservation was NOT created!"
-end
+
+
+  if @reservation.save
+    redirect_to @reservation , notice: "Reservation was created!"
+  else
+  redirect_to @reservation, notice: "Reservation was NOT created!"
+  end
 end
 
 
