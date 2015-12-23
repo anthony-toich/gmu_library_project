@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
-
-before_filter :authorize
+  before_action :set_book, only: [ :show, :edit, :update, :destroy ]
+  before_filter :authorize
 
   def index
     @available_at = Time.now
@@ -12,13 +12,12 @@ before_filter :authorize
     end
   end
 
-before_action :set_book, only: [ :show, :edit, :update, :destroy ]
-
   def show
     #@book = Book.find(params[:id])
+    @reservation = @book.reservations.where(["user_id = :user_id", { user_id: current_user.id}]).first
   end
 
-def new
+  def new
     @book = Book.new
   end
 

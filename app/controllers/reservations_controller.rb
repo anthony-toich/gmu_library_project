@@ -28,28 +28,26 @@ def create
   @reservation.user_id = current_user.id
   @reservation.save
 
-
   if @reservation.save
     redirect_to reservations_url , notice: "Reservation was created!"
   else
     redirect_to reservations_url, notice: "Reservation was NOT created!"
   end
-
 end
 
 def destroy
+    # book_id = params[:book_id]
+    # @reservation = reservations.where("user_id = :user_id and book_id = :book_id",
+    #   {user_id: current_user.id, book_id: book_id})
 
-    @reservation = reservations.where("user_id = :user_id and book_id = :book_id", {user_id: :current_user.id, book_id: :book_id})
-    @reservation.destroy
+  @reservation = Reservation.find(params[:id])
 
   if @reservation.destroy
     redirect_to reservations_url , notice: "Book was returned!"
   else
     redirect_to reservations_url, notice: "Book was NOT returned!"
   end
-
 end
-
 
 
 private
