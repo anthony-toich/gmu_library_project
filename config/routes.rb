@@ -5,6 +5,7 @@ get 'login' => 'sessions#new'
 post 'login' =>'sessions#create'
 get 'logout' => 'sessions#destroy'
 
+
 #get "/books" => "books#index", as: 'books'
 #get "/books/new" => "books#new", as: 'new_book'
 #get "/books/:id" => "books#show", as: 'book'

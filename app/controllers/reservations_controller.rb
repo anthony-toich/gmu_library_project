@@ -4,19 +4,22 @@ before_filter :authorize
 
 def index
 @available_at = Time.now
-  if current_user.admin == true
-     @reservations = Reservation.order(:due_on)
+isAdmin = params[:isAdmin]
+  if current_user.admin == true && isAdmin == "1"
+     @reservations = Reservation.where(["due_on < ?", DateTime.now.to_date]).order(:due_on)
    else
      #Show my reservations
       @reservations = Reservation.where(["user_id = ?", current_user.id])
    end
   end
 
-before_action :set_reservation, only: [:show, :edit, :update, :destroy ]
+before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
  def show
   @reservations = Reservation.where("user_id = ?", params[:current_user_id])
   end
+
+
 
   def new
     @reservation = Reservation.new

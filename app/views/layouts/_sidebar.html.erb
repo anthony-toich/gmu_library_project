@@ -29,14 +29,18 @@
 
        <% end %>
 
-       <p>
-      <% if current_user && current_user.admin == true %>
-        <%= link_to 'All Reservations', reservations_path  %>
-        <% else %>
-        <%= link_to 'My Reservations', reservations_path  %>
-        <% end %>
 
-      </p>
+      <% if current_user && current_user.admin == true %>
+      <p>
+        <%= link_to 'Overdue Reservations', reservations_path(isAdmin: "1")  %>
+       </p>
+       <% end %>
+
+       <p>
+        <%= link_to 'My Reservations', reservations_path  %>
+       </p>
+
+
 
 <%= link_to "Logout", '/logout' %>
 

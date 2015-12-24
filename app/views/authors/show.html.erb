@@ -17,9 +17,9 @@
 <h3>Publications</h3>
 <% @author.books.each do |book| %>
 <div style="float:left; margin:0 1em .5em 0;">
-<%= image_tag(book.image_cover_url, height:"120") %>
+<%= link_to(image_tag(book.image_cover_url, height:"120"), book) %>
 </div>
-<p><label>Title:</label> <%= book.title %></p>
+<p><%= link_to(book.title, book) %></p>
 
  <div style="float:none; clear:both;"> </div>
 <% end %>
