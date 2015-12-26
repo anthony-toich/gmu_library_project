@@ -30,7 +30,9 @@
 <% if current_user && current_user.admin == true %>
 
  | <%= link_to 'Edit', edit_author_path(@author) %>
+ <% if @author.books.count == 0 %>
 <%= button_to 'Delete', @author,
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
